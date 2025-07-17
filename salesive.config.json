@@ -1,0 +1,47 @@
+{
+    "name": "salesive-template",
+    "version": "1.0.0",
+    "description": "Salesive Template",
+    "author": "Salesive",
+    "errorHandling": {
+        "reportErrors": false,
+        "errorReportingUrl": "",
+        "showComponentStack": true,
+        "showReloadButton": true,
+        "customErrorMessages": {
+            "default": "Something went wrong in the application.",
+            "network": "Network error. Please check your connection and try again.",
+            "notFound": "The requested resource was not found."
+        }
+    },
+    "variables": {
+        "css": {
+            "color-brand-primary": "#0d65d9",
+            "color-brand-secondary": "#34be82",
+            "color-brand-secondary-light": "#eaf7f2",
+            "color-brand-secondary-dark": "#268a60",
+            "color-brand-accent": "#ff6b6b",
+            "color-brand-accent-light": "#ffeeee",
+            "color-brand-accent-dark": "#e64c4c",
+            "color-text-primary": "#333333",
+            "color-text-secondary": "#666666",
+            "color-text-muted": "#999999",
+            "color-bg-light": "#f8f9fa",
+            "color-bg-dark": "#212529",
+            "color-success": "#28a745",
+            "color-warning": "#ffc107",
+            "color-error": "#dc3545",
+            "color-info": "#17a2b8"
+        },
+        "app": {
+            "name": "Vite + React + Salesive",
+            "description": "Salesive App Template",
+            "logo": "https://salesive.com/android-chrome-192x192.png",
+            "favicon": "https://salesive.com/favicon.ico"
+        },
+        "images": {
+            "logo": "https://salesive.com/android-chrome-192x192.png",
+            "banner": "https://salesive.com/android-chrome-192x192.png"
+        }
+    }
+}
