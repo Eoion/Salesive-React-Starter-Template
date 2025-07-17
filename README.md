@@ -1,12 +1,13 @@
 # Salesive Template
 
-This template provides a preconfigured setup for building Salesive applications with React, Vite, and Salesive configuration tools.
+This template provides a preconfigured setup for building Salesive e-commerce applications with React, Vite, and Salesive configuration tools.
 
 ## Features
 
 - React with HMR (Hot Module Replacement)
 - Salesive configuration system for dynamic styling and branding
 - React Router integration with route-based theming
+- E-commerce product listing, detail, and checkout pages
 - Automatic config injection from `salesive.config.json`
 
 ## Integrated Tools
@@ -112,38 +113,84 @@ function ThemeManager() {
 }
 ```
 
-## Development
+## Getting Started
+
+### Installation
+
+To create a new Salesive project:
+
+```bash
+# Install the CLI globally (if not already installed)
+npm install -g salesive-dev-tools
+
+# Create a new project
+salesive init
+```
+
+Follow the prompts to name your project and select your preferred package manager (npm, yarn, bun, or pnpm).
+
+The CLI will set up everything you need automatically, including configuration and dependencies.
+
+### Development
 
 To start the development server with hot reloading:
 
 ```bash
+# Using npm
 npm run dev
-# or with the CLI tool
+
+# Using the Salesive CLI (recommended)
 salesive dev
+```
+
+The `salesive dev` command provides additional features like automatic config file watching and server reloading when `salesive.config.json` changes.
+
+## E-commerce Features
+
+This template comes pre-configured with e-commerce functionality:
+
+- **Home Page**: Product listing with category filters, sorting, and search
+- **Product Detail Page**: Detailed product information with image gallery, variations, and add-to-cart functionality
+- **Checkout Page**: Cart management, shipping information, and payment processing
+
+### Customization
+
+All e-commerce features are fully customizable through the `salesive.config.json` file:
+
+```json
+{
+  "variables": {
+    "products": {
+      "items": [
+        {
+          "id": "prod-1",
+          "name": "Product Name",
+          "price": 99.99,
+          "images": ["/path/to/image.jpg"]
+        }
+      ]
+    }
+  }
+}
 ```
 
 ## Error Handling
 
-This template uses a custom error boundary component from the salesive-dev-tools package that replaces the default Vite error handler:
+This template includes comprehensive error handling with:
 
-```jsx
-import { SalesiveErrorBoundary } from 'salesive-dev-tools';
+- Graceful error recovery
+- Development-mode error details
+- Production-mode user-friendly messages
+- Automatic error reporting (configurable)
 
-function App() {
-  return (
-    <SalesiveErrorBoundary>
-      <YourComponent />
-    </SalesiveErrorBoundary>
-  );
-}
+All errors are styled to match your brand colors from `salesive.config.json`.
+
+## Build & Deployment
+
+To build the application for production:
+
+```bash
+npm run build
 ```
 
-### Features
-
-- Branded error display that matches your application's theme
-- Detailed error information for developers
-- User-friendly recovery options
-- Integration with Salesive configuration system
-- Optional error reporting to a custom endpoint
-
-The error boundary automatically adapts to your theme colors defined in `salesive.config.json` and provides options for users to recover from errors without refreshing the page.
+The built application will be in the `dist` directory and can be deployed to any static hosting service.
