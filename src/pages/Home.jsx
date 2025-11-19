@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSalesiveConfig } from "salesive-dev-tools";
 import reactIcon from "../assets/react.svg";
 import viteIcon from "../assets/vite.svg";
-import salesiveIcon from "../assets/salesive.png";
+import salesiveIcon from "../assets/salesive.svg";
 
 function HomePage() {
     const [count, setCount] = useState(0);
@@ -108,7 +108,7 @@ function HomePage() {
                     <h3 className="text-xl font-semibold mt-0 mb-2">
                         Salesive
                     </h3>
-                    <p>Dynamic Salesive configuration system for your apps</p>
+                    <p>Build, launch, and scale commerce experience</p>
                 </div>
             </div>
         </div>

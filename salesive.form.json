@@ -1,0 +1,75 @@
+{
+    "pages": [
+        {
+            "page": "general",
+            "title": "General Settings",
+            "description": "Configure your store's basic information",
+            "sections": [
+                {
+                    "id": "store-info",
+                    "title": "Store Information",
+                    "description": "Your store's basic details",
+                    "fields": [
+                        {
+                            "id": "storeName",
+                            "type": "text",
+                            "inputType": "text",
+                            "label": "Store Name",
+                            "placeholder": "My Awesome Store",
+                            "default": "",
+                            "required": true
+                        },
+                        {
+                            "id": "storeDescription",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "label": "Store Description",
+                            "placeholder": "Tell customers about your store",
+                            "default": "",
+                            "required": true
+                        },
+                        {
+                            "id": "storeLogo",
+                            "type": "media",
+                            "mediaType": "image",
+                            "label": "Store Logo",
+                            "description": "Upload your store logo (recommended: 200x200px)",
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "id": "contact",
+                    "title": "Contact Information",
+                    "description": "How customers can reach you",
+                    "fields": [
+                        {
+                            "id": "email",
+                            "type": "text",
+                            "inputType": "email",
+                            "label": "Contact Email",
+                            "placeholder": "contact@example.com",
+                            "required": true
+                        },
+                        {
+                            "id": "phone",
+                            "type": "text",
+                            "inputType": "tel",
+                            "label": "Phone Number",
+                            "placeholder": "+1 (555) 123-4567",
+                            "required": true
+                        },
+                        {
+                            "id": "address",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "label": "Business Address",
+                            "placeholder": "123 Main St, City, State, ZIP",
+                            "required": false
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
