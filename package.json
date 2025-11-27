@@ -16,7 +16,8 @@
         "react-dom": "^19.1.0",
         "react-router-dom": "^7.6.3",
         "salesive-api-axios": "^0.0.4",
-        "salesive-dev-tools": "^0.0.3"
+        "salesive-dev-tools": "^0.0.3",
+        "salesive-react-starter-template": "."
     },
     "devDependencies": {
         "@eslint/js": "^9.30.1",

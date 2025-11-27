@@ -4,6 +4,7 @@
     "": {
       "name": "salesive-temp",
       "dependencies": {
+        "salesive-react-starter-template": ".",
         "@tailwindcss/vite": "^4.1.11",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
@@ -667,6 +668,8 @@
     "salesive-api-axios": ["salesive-api-axios@0.0.4", "", { "dependencies": { "axios": "^1.6.0", "salesive-api": "." } }, "sha512-LgH+L7it/lRlxmxUkisKFfrMFsKZ2BZ5ZzTcgMNqKyoI9a84vRwRaV9LRVmoi5pUF+MIWdzeZ4/HqwCslqDXFQ=="],
 
     "salesive-dev-tools": ["salesive-dev-tools@0.0.3", "", { "dependencies": { "ajv": "^8.17.1", "archiver": "^6.0.1", "axios": "^1.6.0", "chalk": "^5.3.0", "commander": "^11.1.0", "conf": "^12.0.0", "dotenv": "^16.3.1", "form-data": "^4.0.0", "fs-extra": "^11.1.1", "glob": "^10.3.10", "inquirer": "^9.2.10", "ora": "^7.0.1" }, "peerDependencies": { "react": ">=16.8.0", "vite": ">=4.0.0" }, "bin": { "salesive": "dist/cli.js" } }, "sha512-MobWAwyvLSRsHSeVFqgv2vbkZOaUFOFgMn/DaiEa/z4/nICFc0HDI008UxwkAiTnLuu5aIzqt47td/6lEKIk5Q=="],
+
+    "salesive-react-starter-template": ["salesive-react-starter-template@file:", { "dependencies": { "@tailwindcss/vite": "^4.1.11", "react": "^19.1.0", "react-dom": "^19.1.0", "react-router-dom": "^7.6.3", "salesive-api-axios": "^0.0.4", "salesive-dev-tools": "^0.0.3" }, "devDependencies": { "@eslint/js": "^9.30.1", "@types/react": "^19.1.8", "@types/react-dom": "^19.1.6", "@vitejs/plugin-react": "^4.6.0", "autoprefixer": "^10.4.21", "eslint": "^9.30.1", "eslint-plugin-react-hooks": "^5.2.0", "eslint-plugin-react-refresh": "^0.4.20", "globals": "^16.3.0", "postcss": "^8.5.6", "tailwindcss": "^4.0.0", "vite": "^7.0.4" } }],
 
     "scheduler": ["scheduler@0.27.0", "", {}, "sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q=="],
 

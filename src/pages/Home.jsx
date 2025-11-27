@@ -5,16 +5,7 @@ import viteIcon from "../assets/vite.svg";
 import salesiveIcon from "../assets/salesive.svg";
 
 function HomePage() {
-    const [count, setCount] = useState(0);
-
-    // Salesive config values
-    const appName = useSalesiveConfig("variables.app.name");
-    const appLogo = useSalesiveConfig("variables.app.logo");
-    const brandPrimary = useSalesiveConfig("variables.css.color-brand-primary");
-    const brandSecondary = useSalesiveConfig(
-        "variables.css.color-brand-secondary"
-    );
-    const brandAccent = useSalesiveConfig("variables.css.color-brand-accent");
+    const appName = useSalesiveConfig("name");
 
     return (
         <div className="w-full max-w-7xl mx-auto p-8 text-center">
@@ -49,7 +40,7 @@ function HomePage() {
 
                 {/* Salesive Logo */}
                 <a
-                    href="https://salesive.com"
+                    href="https://docs.salesive.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group"
@@ -62,19 +53,14 @@ function HomePage() {
                 </a>
             </div>
 
-            <h1 className="text-4xl font-bold mb-6">{appName}</h1>
-
             <div className="py-8">
-                <button
-                    onClick={() => setCount((count) => count + 1)}
-                    className="rounded-lg border border-transparent px-5 py-2.5 text-base font-medium text-white cursor-pointer transition-colors duration-250 bg-brand-primary hover:border-brand-secondary focus:outline-none mb-4"
-                >
-                    count is {count}
+                <button className="rounded-lg border border-transparent px-5 py-2.5 text-base font-medium text-white cursor-pointer transition-colors duration-250 bg-brand-primary hover:border-brand-secondary focus:outline-none mb-4">
+                    {appName}
                 </button>
                 <p className="mt-2">
-                    Edit{" "}
+                    Edit name in{" "}
                     <code className="font-mono text-gray-100 px-1 rounded">
-                        src/pages/Home.jsx
+                        salesive.config.json
                     </code>{" "}
                     and save to test HMR
                 </p>
@@ -85,26 +71,17 @@ function HomePage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mt-8">
-                <div
-                    className="border rounded-lg p-6 w-60 transition-transform duration-300 hover:-translate-y-1.5"
-                    style={{ borderColor: brandSecondary }}
-                >
+                <div className="border rounded-lg p-6 w-60 transition-transform duration-300 hover:-translate-y-1.5">
                     <h3 className="text-xl font-semibold mt-0 mb-2">Vite</h3>
                     <p>Next Generation Frontend Tooling</p>
                 </div>
 
-                <div
-                    className="border rounded-lg p-6 w-60 transition-transform duration-300 hover:-translate-y-1.5"
-                    style={{ borderColor: brandPrimary }}
-                >
+                <div className="border rounded-lg p-6 w-60 transition-transform duration-300 hover:-translate-y-1.5">
                     <h3 className="text-xl font-semibold mt-0 mb-2">React</h3>
                     <p>A JavaScript library for building user interfaces</p>
                 </div>
 
-                <div
-                    className="border rounded-lg p-6 w-60 transition-transform duration-300 hover:-translate-y-1.5"
-                    style={{ borderColor: brandAccent }}
-                >
+                <div className="border rounded-lg p-6 w-60 transition-transform duration-300 hover:-translate-y-1.5">
                     <h3 className="text-xl font-semibold mt-0 mb-2">
                         Salesive
                     </h3>
