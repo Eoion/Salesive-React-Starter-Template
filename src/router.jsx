@@ -4,9 +4,6 @@ import App from "./App";
 
 // Import page components
 import HomePage from "./pages/Home";
-import AboutPage from "./pages/About";
-import ContactPage from "./pages/Contact";
-import NotFoundPage from "./pages/NotFound";
 
 // Define routes configuration
 const router = createBrowserRouter([
@@ -19,7 +16,7 @@ const router = createBrowserRouter([
         ),
         errorElement: (
             <SalesiveErrorBoundary>
-                <NotFoundPage />
+                <HomePage />
             </SalesiveErrorBoundary>
         ),
         children: [
@@ -30,12 +27,8 @@ const router = createBrowserRouter([
                         element: <HomePage />,
                     },
                     {
-                        path: "about",
-                        element: <AboutPage />,
-                    },
-                    {
-                        path: "contact",
-                        element: <ContactPage />,
+                        path: "*", // Catch-all route
+                        element: <HomePage />,
                     },
                 ],
             },
