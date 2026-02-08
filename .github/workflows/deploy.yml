@@ -25,7 +25,7 @@ jobs:
                   SALESIVE_TOKEN: ${{ secrets.SALESIVE_TOKEN }}
               run: |
                   if [ -z "$SALESIVE_TOKEN" ]; then
-                    echo "Error: SALESIVE_TOKEN secret is not set."
-                    exit 1
+                    echo "::warning:: SALESIVE_TOKEN secret is not set. Skipping deployment."
+                    exit 0
                   fi
                   bun run salesive cook --token "$SALESIVE_TOKEN"
