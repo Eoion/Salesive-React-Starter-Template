@@ -33,7 +33,7 @@ function HomePage() {
             </div>
 
             <main className="grow flex flex-col items-center w-full px-4 py-16 z-10">
-                <div className="w-full max-w-3xl space-y-8">
+                <div className="w-full max-w-5xl space-y-8">
                     {/* Hero */}
                     <div className="text-center space-y-5">
                         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-sm">
@@ -58,257 +58,261 @@ function HomePage() {
                         </p>
                     </div>
 
-                    {/* Setup Guide */}
-                    <Card>
-                        <CardHeader
-                            icon={<ClockIcon />}
-                            title="Quick Setup"
-                            subtitle="Connect your Salesive shop in 3 steps"
-                        />
+                    {/* Cards Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch w-full">
+                        {/* Setup Guide */}
+                        <Card className="flex flex-col h-full">
+                            <CardHeader
+                                icon={<ClockIcon />}
+                                title="Quick Setup"
+                                subtitle="Connect your Salesive shop in 3 steps"
+                            />
 
-                        <div className="divide-y divide-white/5">
-                            {/* Step 1 */}
-                            <Step number={1}>
-                                <p className="text-sm font-semibold text-white">
-                                    Sign in to your Salesive Dashboard
-                                </p>
-                                <p className="text-sm text-gray-400 mt-0.5">
-                                    Go to{" "}
-                                    <a
-                                        href="https://dashboard.salesive.com"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-brand-primary hover:underline font-medium"
-                                    >
-                                        dashboard.salesive.com
-                                    </a>{" "}
-                                    and log in to your account.
-                                </p>
-                            </Step>
+                            <div className="divide-y divide-white/5 flex-grow flex flex-col justify-between">
+                                {/* Step 1 */}
+                                <Step number={1}>
+                                    <p className="text-sm font-semibold text-white">
+                                        Sign in to your Salesive Dashboard
+                                    </p>
+                                    <p className="text-sm text-gray-400 mt-0.5">
+                                        Go to{" "}
+                                        <a
+                                            href="https://app.salesive.com"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-brand-primary hover:underline font-medium"
+                                        >
+                                            app.salesive.com
+                                        </a>{" "}
+                                        and log in to your account.
+                                    </p>
+                                </Step>
 
-                            {/* Step 2 */}
-                            <Step number={2}>
-                                <p className="text-sm font-semibold text-white">
-                                    Navigate to Settings → Advanced
-                                </p>
-                                <p className="text-sm text-gray-400 mt-0.5">
-                                    Open{" "}
-                                    <span className="text-gray-300 font-medium">
-                                        Settings
-                                    </span>{" "}
-                                    from the sidebar, select the{" "}
-                                    <span className="text-gray-300 font-medium">
-                                        Advanced
-                                    </span>{" "}
-                                    tab, and find your Shop ID under{" "}
-                                    <span className="text-gray-300 font-medium">
-                                        Shop Identifier
-                                    </span>
-                                    .
-                                </p>
-                                <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-                                    <Crumb>Settings</Crumb>
-                                    <ChevronRight />
-                                    <Crumb>Advanced</Crumb>
-                                    <ChevronRight />
-                                    <Crumb highlight>Shop Identifier</Crumb>
-                                </div>
-                            </Step>
-
-                            {/* Step 3 */}
-                            <Step number={3}>
-                                <p className="text-sm font-semibold text-white">
-                                    Add your Shop ID to{" "}
-                                    <code className="text-brand-primary font-mono text-[13px] bg-brand-primary/10 px-1.5 py-0.5 rounded">
-                                        .env
-                                    </code>
-                                </p>
-                                <p className="text-sm text-gray-400 mt-0.5">
-                                    Paste your Shop ID into the{" "}
-                                    <code className="font-mono text-xs bg-white/8 px-1 py-0.5 rounded text-gray-300">
-                                        .env
-                                    </code>{" "}
-                                    file at the root of this project.
-                                </p>
-                                <CodeBlock
-                                    className="mt-3"
-                                    onCopy={() =>
-                                        copy(
-                                            "VITE_SALESIVE_SHOP_ID=your_shop_id_here",
-                                            setCopiedEnv,
-                                        )
-                                    }
-                                    copied={copiedEnv}
-                                >
-                                    <span className="text-gray-500">
-                                        VITE_SALESIVE_SHOP_ID
-                                    </span>
-                                    <span className="text-gray-500">=</span>
-                                    <span className="text-emerald-400">
-                                        your_shop_id_here
-                                    </span>
-                                </CodeBlock>
-                            </Step>
-                        </div>
-                    </Card>
-
-                    {/* MCP for AI */}
-                    <Card>
-                        <CardHeader
-                            icon={<SparklesIcon />}
-                            title="Salesive Docs MCP"
-                            subtitle="Let AI assistants help you build faster"
-                            badge="New"
-                            docsHref="https://docs.salesive.com"
-                        />
-
-                        <div className="px-6 pb-6 pt-5 space-y-4">
-                            <p className="text-sm text-gray-400 leading-relaxed">
-                                Salesive provides an{" "}
-                                <span className="text-gray-300 font-medium">
-                                    MCP (Model Context Protocol) server
-                                </span>{" "}
-                                — giving AI assistants like Claude and Cursor
-                                direct access to Salesive documentation, API
-                                references, and code examples. Add the config
-                                below to your AI client.
-                            </p>
-
-                            {/* Capabilities */}
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                                {[
-                                    "Search docs",
-                                    "Query API refs",
-                                    "Browse guides",
-                                    "Find code examples",
-                                    "Explore endpoints",
-                                    "Read changelogs",
-                                ].map((cap) => (
-                                    <div
-                                        key={cap}
-                                        className="flex items-center gap-2 text-xs text-gray-400 bg-white/4 border border-white/6 rounded-lg px-3 py-2"
-                                    >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-brand-primary flex-shrink-0" />
-                                        {cap}
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* MCP config snippet */}
-                            <div>
-                                <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">
-                                    Claude Desktop / Cursor config
-                                </p>
-                                <div className="relative group bg-neutral-900 border border-white/8 rounded-xl overflow-hidden">
-                                    <div className="flex items-center gap-1.5 px-4 pt-3 pb-0">
-                                        {[
-                                            "bg-red-500/60",
-                                            "bg-yellow-500/60",
-                                            "bg-green-500/60",
-                                        ].map((c, i) => (
-                                            <span
-                                                key={i}
-                                                className={`w-2.5 h-2.5 rounded-full ${c}`}
-                                            />
-                                        ))}
-                                        <span className="text-xs text-gray-600 ml-2 font-mono">
-                                            claude_desktop_config.json
+                                {/* Step 2 */}
+                                <Step number={2}>
+                                    <p className="text-sm font-semibold text-white">
+                                        Navigate to Settings → Advanced
+                                    </p>
+                                    <p className="text-sm text-gray-400 mt-0.5">
+                                        Open{" "}
+                                        <span className="text-gray-300 font-medium">
+                                            Settings
+                                        </span>{" "}
+                                        from the sidebar, select the{" "}
+                                        <span className="text-gray-300 font-medium">
+                                            Advanced
+                                        </span>{" "}
+                                        tab, and find your Shop ID under{" "}
+                                        <span className="text-gray-300 font-medium">
+                                            Shop Identifier
                                         </span>
+                                        .
+                                    </p>
+                                    <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
+                                        <Crumb>Settings</Crumb>
+                                        <ChevronRight />
+                                        <Crumb>Advanced</Crumb>
+                                        <ChevronRight />
+                                        <Crumb highlight>Shop Identifier</Crumb>
                                     </div>
-                                    <pre className="text-xs font-mono px-4 py-4 overflow-x-auto leading-relaxed">
-                                        <code>
-                                            <span className="text-gray-600">
-                                                {"{"}
-                                            </span>
-                                            {"\n"}
-                                            {"  "}
-                                            <span className="text-blue-400">
-                                                "mcpServers"
-                                            </span>
-                                            <span className="text-gray-600">
-                                                : {"{"}
-                                            </span>
-                                            {"\n"}
-                                            {"    "}
-                                            <span className="text-blue-400">
-                                                "salesive"
-                                            </span>
-                                            <span className="text-gray-600">
-                                                : {"{"}
-                                            </span>
-                                            {"\n"}
-                                            {"      "}
-                                            <span className="text-blue-400">
-                                                "url"
-                                            </span>
-                                            <span className="text-gray-600">
-                                                :{" "}
-                                            </span>
-                                            <span className="text-emerald-400">
-                                                "https://docs.salesive.com/mcp"
-                                            </span>
-                                            {"\n"}
-                                            {"    "}
-                                            <span className="text-gray-600">
-                                                {"}"}
-                                            </span>
-                                            {"\n"}
-                                            {"  "}
-                                            <span className="text-gray-600">
-                                                {"}"}
-                                            </span>
-                                            {"\n"}
-                                            <span className="text-gray-600">
-                                                {"}"}
-                                            </span>
-                                        </code>
-                                    </pre>
-                                    <button
-                                        onClick={() =>
-                                            copy(mcpSnippet, setCopiedMcp)
-                                        }
-                                        className="absolute top-3 right-3 flex items-center gap-1.5 bg-white/8 hover:bg-white/14 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-gray-400 hover:text-white transition-all"
-                                    >
-                                        {copiedMcp ? (
-                                            <>
-                                                <CheckIcon />
-                                                <span className="text-emerald-400">
-                                                    Copied
-                                                </span>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <CopyIcon />
-                                                <span>Copy</span>
-                                            </>
-                                        )}
-                                    </button>
-                                </div>
-                            </div>
+                                </Step>
 
-                            <a
-                                href="https://docs.salesive.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-brand-primary hover:text-blue-400 font-medium transition-colors group"
-                            >
-                                Read the MCP docs
-                                <svg
-                                    className="group-hover:translate-x-0.5 transition-transform"
-                                    width="14"
-                                    height="14"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
+                                {/* Step 3 */}
+                                <Step number={3}>
+                                    <p className="text-sm font-semibold text-white">
+                                        Add your Shop ID to{" "}
+                                        <code className="text-brand-primary font-mono text-[13px] bg-brand-primary/10 px-1.5 py-0.5 rounded">
+                                            .env
+                                        </code>
+                                    </p>
+                                    <p className="text-sm text-gray-400 mt-0.5">
+                                        Paste your Shop ID into the{" "}
+                                        <code className="font-mono text-xs bg-white/8 px-1 py-0.5 rounded text-gray-300">
+                                            .env
+                                        </code>{" "}
+                                        file at the root of this project.
+                                    </p>
+                                    <CodeBlock
+                                        className="mt-3"
+                                        onCopy={() =>
+                                            copy(
+                                                "VITE_SALESIVE_SHOP_ID=your_shop_id_here",
+                                                setCopiedEnv,
+                                            )
+                                        }
+                                        copied={copiedEnv}
+                                    >
+                                        <span className="text-gray-500">
+                                            VITE_SALESIVE_SHOP_ID
+                                        </span>
+                                        <span className="text-gray-500">=</span>
+                                        <span className="text-emerald-400">
+                                            your_shop_id_here
+                                        </span>
+                                    </CodeBlock>
+                                </Step>
+                            </div>
+                        </Card>
+
+                        {/* MCP for AI */}
+                        <Card className="flex flex-col h-full">
+                            <CardHeader
+                                icon={<SparklesIcon />}
+                                title="Salesive Docs MCP"
+                                subtitle="Let AI assistants help you build faster"
+                                badge="New"
+                                docsHref="https://docs.salesive.com"
+                            />
+
+                            <div className="px-6 pb-6 pt-5 space-y-4 flex-grow flex flex-col justify-between">
+                                <p className="text-sm text-gray-400 leading-relaxed">
+                                    Salesive provides an{" "}
+                                    <span className="text-gray-300 font-medium">
+                                        MCP (Model Context Protocol) server
+                                    </span>{" "}
+                                    — giving AI assistants like Claude and
+                                    Cursor direct access to Salesive
+                                    documentation, API references, and code
+                                    examples. Add the config below to your AI
+                                    client.
+                                </p>
+
+                                {/* Capabilities */}
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                    {[
+                                        "Search docs",
+                                        "Query API refs",
+                                        "Browse guides",
+                                        "Find code examples",
+                                        "Explore endpoints",
+                                        "Read changelogs",
+                                    ].map((cap) => (
+                                        <div
+                                            key={cap}
+                                            className="flex items-center gap-2 text-xs text-gray-400 bg-white/4 border border-white/6 rounded-lg px-3 py-2"
+                                        >
+                                            <span className="w-1.5 h-1.5 rounded-full bg-brand-primary flex-shrink-0" />
+                                            {cap}
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* MCP config snippet */}
+                                <div>
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2">
+                                        Claude Desktop / Cursor config
+                                    </p>
+                                    <div className="relative group bg-neutral-900 border border-white/8 rounded-xl overflow-hidden">
+                                        <div className="flex items-center gap-1.5 px-4 pt-3 pb-0">
+                                            {[
+                                                "bg-red-500/60",
+                                                "bg-yellow-500/60",
+                                                "bg-green-500/60",
+                                            ].map((c, i) => (
+                                                <span
+                                                    key={i}
+                                                    className={`w-2.5 h-2.5 rounded-full ${c}`}
+                                                />
+                                            ))}
+                                            <span className="text-xs text-gray-600 ml-2 font-mono">
+                                                claude_desktop_config.json
+                                            </span>
+                                        </div>
+                                        <pre className="text-xs font-mono px-4 py-4 overflow-x-auto leading-relaxed">
+                                            <code>
+                                                <span className="text-gray-600">
+                                                    {"{"}
+                                                </span>
+                                                {"\n"}
+                                                {"  "}
+                                                <span className="text-blue-400">
+                                                    "mcpServers"
+                                                </span>
+                                                <span className="text-gray-600">
+                                                    : {"{"}
+                                                </span>
+                                                {"\n"}
+                                                {"    "}
+                                                <span className="text-blue-400">
+                                                    "salesive"
+                                                </span>
+                                                <span className="text-gray-600">
+                                                    : {"{"}
+                                                </span>
+                                                {"\n"}
+                                                {"      "}
+                                                <span className="text-blue-400">
+                                                    "url"
+                                                </span>
+                                                <span className="text-gray-600">
+                                                    :{" "}
+                                                </span>
+                                                <span className="text-emerald-400">
+                                                    "https://docs.salesive.com/mcp"
+                                                </span>
+                                                {"\n"}
+                                                {"    "}
+                                                <span className="text-gray-600">
+                                                    {"}"}
+                                                </span>
+                                                {"\n"}
+                                                {"  "}
+                                                <span className="text-gray-600">
+                                                    {"}"}
+                                                </span>
+                                                {"\n"}
+                                                <span className="text-gray-600">
+                                                    {"}"}
+                                                </span>
+                                            </code>
+                                        </pre>
+                                        <button
+                                            onClick={() =>
+                                                copy(mcpSnippet, setCopiedMcp)
+                                            }
+                                            className="absolute top-3 right-3 flex items-center gap-1.5 bg-white/8 hover:bg-white/14 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-gray-400 hover:text-white transition-all"
+                                        >
+                                            {copiedMcp ? (
+                                                <>
+                                                    <CheckIcon />
+                                                    <span className="text-emerald-400">
+                                                        Copied
+                                                    </span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <CopyIcon />
+                                                    <span>Copy</span>
+                                                </>
+                                            )}
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <a
+                                    href="https://docs.salesive.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-sm text-brand-primary hover:text-blue-400 font-medium transition-colors group"
                                 >
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </Card>
+                                    Read the MCP docs
+                                    <svg
+                                        className="group-hover:translate-x-0.5 transition-transform"
+                                        width="14"
+                                        height="14"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M5 12h14M12 5l7 7-7 7" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </Card>
+                    </div>
 
                     {/* CTA Row */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -387,9 +391,11 @@ function HomePage() {
 
 /* ── Shared primitives ── */
 
-function Card({ children }) {
+function Card({ children, className = "" }) {
     return (
-        <div className="bg-white/4 border border-white/8 rounded-2xl overflow-hidden backdrop-blur-sm">
+        <div
+            className={`bg-white/4 border border-white/8 rounded-2xl overflow-hidden backdrop-blur-sm ${className}`}
+        >
             {children}
         </div>
     );
