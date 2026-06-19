@@ -15,7 +15,7 @@
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-router-dom": "^7.6.3",
-        "salesive-api-axios": "^0.0.8",
+        "salesive-api-axios": "^0.0.7",
         "salesive-dev-tools": "^0.0.8"
     },
     "devDependencies": {
